@@ -1,6 +1,23 @@
 package codeeval.medium.detectingcycles;
 
+import java.io.IOException;
+import java.nio.charset.Charset;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.util.List;
+
+/**
+ * https://www.codeeval.com/open_challenge_scores/?pkbid=5
+ */
 public class Main {
+
+    public static void main(String[] args) throws IOException {
+        List<String> strings = Files.readAllLines(FileSystems.getDefault().getPath(args[0]), Charset.defaultCharset());
+        Main m = new Main();
+        for (String string : strings) {
+            System.out.println(m.detectCycle(string));
+        }
+    }
 
     public String detectCycle(String numbers) {
         String[] split = numbers.split("\\s");
